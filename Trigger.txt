@@ -1,0 +1,42 @@
+Triggers: Triggers are Named pl/sql which are stored in the database.
+Specialized stored programs which execute implicitly when a triggering.
+
+A trigger is a database object that automatically executes in response to some events on the tables or views. 
+It is used to apply the integrity constraint to database objects.
+A PL/SQL program unit associated with a particular database table is called a database trigger. It is used for:
+7.	Audit data modifications
+8.	Log events transparently
+9.	Enforce complex business rules
+10.	Maintain replica tables
+11.	Derive column values
+12.	Implement complex security authorizations
+
+event occurs.
+   Which Events :
+   	1. A DML Statement
+        2. A DDL Statement
+     	3. A System event
+	4. A User event
+   Types : 
+	1. DML Triggers
+	2. DDL Triggers 
+	3. System/Database Event Triggers
+	4. Instead of Triggers
+	5.Compound Triggers
+  Syntax :
+	CREATE [ OR REPLACE ] TRIGGER trigger_name
+	{BEFORE | AFTER } Triggering_event ON table_name
+	[FOR EACH ROW] [FOLLOWS another_trigger_name ]
+	[ENABLE/DISABLE] [WHEN condition]
+	DECLARE
+	    declaration statements
+        BEGIN
+	    executable statements
+	END
+	
+Uses :
+	1. Enforce Business rules
+	2. gain strong Control over the security
+	3. collect statistical information
+	4. automatically generate values
+	5. prevent invalid transactions

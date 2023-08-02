@@ -1,0 +1,28 @@
+Cursor : cursor is a pointer to a memory area called context area.
+This area is a memory region inside the process global area(pga) assigned 
+to hold the information about the processing of a select statement or dml statement.
+
+This area is a memory region inside pga which helps oracle server in processing an
+sql statement by holding the important information about that statement. 
+ --> rows returned by a query
+ --> Number of rows processed by a query
+ --> A pointer to the parsed query in the share pool
+
+Using cursor we can control the context area as it is a pointer to the same.
+
+type of cursor :
+ --> emplicit Cursor : Automatically created by the oracle server. User can not control the 
+                       behavior of these cursors. Oracle server creats an 
+                       implicit cursor for any pl/sql blocks which executes and
+		       sql statement.
+    
+ --> explicit cursor: as long as  explicit cursor that not exit fot that 
+		       sql statement.
+		    -Explicit cursor are user define cursor.
+                    -user has full control
+ 
+         steps of creating explicit cursor
+		-DECLARE
+		-OPEN
+		-FETCH
+		-CLOSE
