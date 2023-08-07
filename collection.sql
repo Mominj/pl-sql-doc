@@ -1,3 +1,5 @@
+https://www.tutorialspoint.com/plsql/plsql_collections.htm
+
 Collections : A Homogeneous single dimenstion data structure which is made
 of elements of same datatype is called collection in oracle database.
 
@@ -19,6 +21,13 @@ Collections are two types .
    
 
    Nested Table : 
+   
+     A nested table is like a one-dimensional array with an arbitrary number of elements. However, a nested table differs from an array in the following aspects −
+
+     An array has a declared number of elements, but a nested table does not. The size of a nested table can increase dynamically.
+
+	 An array is always dense, i.e., it always has consecutive subscripts. A nested array is de
+   
 	- Nested table are persistent collection
 	- Nested tables has no upper limits on rows
    
@@ -100,7 +109,32 @@ Collections are two types .
 	        - VARIABLE SIZE ARRAY  are bounded
 
 
+		DECLARE
+		  TYPE table_type IS VARRAY(5) OF NUMBER(10);
+		  v_tab  table_type;
+		  v_idx  NUMBER;
+		BEGIN
+		  -- Initialise the collection with two values.
+		  v_tab := table_type(1, 2);
 
+		  -- Extend the collection with extra values.
+		  << load_loop >>
+		  FOR i IN 3 .. 5 LOOP
+			v_tab.extend;
+			v_tab(v_tab.last) := i;
+		  END LOOP load_loop;
+		  
+		  -- Can't delete from a VARRAY.
+		  -- v_tab.DELETE(3);
+
+		  -- Traverse collection
+		  v_idx := v_tab.FIRST;
+		  << display_loop >>
+		  WHILE v_idx IS NOT NULL LOOP
+			DBMS_OUTPUT.PUT_LINE('The number ' || v_tab(v_idx));
+			v_idx := v_tab.NEXT(v_idx);
+		  END LOOP display_loop;
+		END;
 
 
 
@@ -122,15 +156,27 @@ Collections are two types .
 		- Associative ARRAY  are non - persistent collection
 		- they can not be resued
 		- avilable in pl/sql block for the session
-
-failer accounting entries list 
-
-
-brnNUm   ref_num   core posting status  -- I
     
-1      1SB2320600004
 
-
+		DECLARE 
+		   TYPE salary IS TABLE OF NUMBER INDEX BY VARCHAR2(20); 
+		   salary_list salary; 
+		   name   VARCHAR2(20); 
+		BEGIN 
+		   -- adding elements to the table 
+		   salary_list('Rajnish') := 62000; 
+		   salary_list('Minakshi') := 75000; 
+		   salary_list('Martin') := 100000; 
+		   salary_list('James') := 78000;  
+		   
+		   -- printing the table 
+		   name := salary_list.FIRST; 
+		   WHILE name IS NOT null LOOP 
+			  dbms_output.put_line 
+			  ('Salary of ' || name || ' is ' || TO_CHAR(salary_list(name))); 
+			  name := salary_list.NEXT(name); 
+		   END LOOP; 
+		END; 
 
 
 
