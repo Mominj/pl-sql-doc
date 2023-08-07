@@ -36,7 +36,7 @@ END;
 
 
 
-//curosr based record datatype with multiple value
+//curosr based record = with multiple value
 
 DECLARE
     CURSOR cur_Momin IS

@@ -1,7 +1,4 @@
-Packages : are stored libraries in the database which allow us to group
-related PL/SQL object under one name. 
-
-In one word, Packages are logical groups of related PL/SQL object.
+Packages :  Packages are logical groups of related PL/SQL object.
 	-> packages are named pl/sql blocks
 	-> permanently stored into the database schema
 	-> can be referienced or reused by program

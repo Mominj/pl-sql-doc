@@ -1,8 +1,25 @@
-Cursor :
-Cursor in SQL
+Cursor in SQL :
 To execute SQL statements, a work area is used by the Oracle engine for its internal processing and 
 storing the information. This work area is private to SQL’s operations. 
 The ‘Cursor’ is the PL/SQL construct that allows the user to name the work area and access the stored information in it.
+
+
+Cursor in SQL
+To execute SQL statements, a work area is used by the Oracle engine for its internal processing and storing the information. This work area is private
+ to SQL’s operations. The ‘Cursor’ is the PL/SQL construct that allows the user to name the work area and access the stored information in it.
+
+Use of Cursor
+The major function of a cursor is to retrieve data, one row at a time, from a result set, unlike the SQL commands which operate on all the rows in the result set at one time. Cursors are used when the user needs to update records in a singleton fashion or in a row by row manner, in a database table.
+The Data that is stored in the Cursor is called the Active Data Set. Oracle DBMS has another predefined area in the main memory Set, within which the cursors are opened. Hence the size of the cursor is limited by the size of this pre-defined area.
+
+
+Cursor Actions
+
+Declare Cursor: A cursor is declared by defining the SQL statement that returns a result set.
+Open: A Cursor is opened and populated by executing the SQL statement defined by the cursor.
+Fetch: When the cursor is opened, rows can be fetched from the cursor one by one or in a block to perform data manipulation.
+Close: After data manipulation, close the cursor explicitly.
+Deallocate: Finally, delete the cursor definition and release all the system resources associated with the curso
 
 
 cursor is a pointer to a memory area called context area.

@@ -129,4 +129,101 @@ failer accounting entries list
 brnNUm   ref_num   core posting status  -- I
     
 1      1SB2320600004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PACKAGE pkg_Test IS
+       PROCEDURE SP_PRINT_DEAL;
+       TYPE DEAL_IDS IS TABLE OF VARCHAR2(30); 
+       my_deals_ids DEAL_IDS :=  DEAL_IDS();
+
+       TYPE deal_Details IS RECORD(
+         SECURITY_CODE TB_FIS_DEAL.SECURITY_CODE%TYPE,
+         DEAL_ID TB_FIS_DEAL.DEAL_ID%TYPE,
+         DEAL_FLOW TB_FIS_DEAL.DEAL_FLOW%TYPE
+      );
+      CURSOR cur_Deal_Info is
+      SELECT DEAL_ID FROM TB_FIS_DEAL;
+      
+      Deal_info_log cur_Deal_Info%rowtype;
+      Deal_details_log deal_Details;
+END pkg_Test;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE PACKAGE BODY pkg_Test IS
+       PROCEDURE SP_PRINT_DEAL IS
+         BEGIN
+           
+      
+           
+              FOR L_IDX IN cur_Deal_Info
+              LOOP
+              -- DBMS_OUTPUT.PUT_LINE(L_IDX.DEAL_ID);
+                my_deals_ids.extend();
+                my_deals_ids( my_deals_ids.count ) := L_IDX.DEAL_ID;
+             END LOOP;
+
+
+
+
+            -- INSERT INTO DEAL_TEST(DEAL_ID,SECURITY_CODE,DEAL_FLOW)
+            --   VALUES(Deal_details_log.DEAL_ID, Deal_details_log.SECURITY_CODE,Deal_details_log.DEAL_FLOW);
+            
+             IF my_deals_ids.COUNT > 0
+              THEN
+                  FOR indx IN my_deals_ids.FIRST .. my_deals_ids.LAST
+               LOOP
+                  DBMS_OUTPUT.PUT_LINE(my_deals_ids(indx));
+               END LOOP;
+             END IF;
+
+             DBMS_OUTPUT.PUT_LINE('INSERT DATA INTO DEAL TEST SUCCESSFULLY ');
+         END SP_PRINT_DEAL;
+
+END pkg_Test;
+
  

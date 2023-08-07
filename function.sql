@@ -1,11 +1,11 @@
-PL/SQL Functions : A self contained sub program that is meant to 
+PL/SQL subroutings or sub-program : A self contained sub program that is meant to 
 do some specific well defined task.
 
 Functions are named PL/SQL Block which means they can be stored into the database
 as a database object and can be reused.
 
 TYPES of subroutings or say sub programs
-	1.PL/SQL Functions and
+	1. PL/SQL Functions and
 	2. PL/SQL Procedures
 
 PL/SQL Functions Syntax :

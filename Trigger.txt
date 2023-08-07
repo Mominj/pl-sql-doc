@@ -1,5 +1,4 @@
-Triggers: Triggers are Named pl/sql which are stored in the database.
-Specialized stored programs which execute implicitly when a triggering.
+
 
 A trigger is a database object that automatically executes in response to some events on the tables or views. 
 It is used to apply the integrity constraint to database objects.

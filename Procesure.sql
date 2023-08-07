@@ -39,6 +39,13 @@ BEGIN
    UPDATE EMPLOYEES SET salary = emp_salary where employee_id = emp_id;
 END;
 
+
+// naming call
 BEGIN
   emp_sal(1, 500);
 END;
+
+
+// notation calling
+
+EXECUTE emp_sal(1, 500);
