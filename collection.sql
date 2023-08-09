@@ -156,7 +156,7 @@ Collections are two types .
 		- Associative ARRAY  are non - persistent collection
 		- they can not be resued
 		- avilable in pl/sql block for the session
-    
+    5SB2309700002
 
 		DECLARE 
 		   TYPE salary IS TABLE OF NUMBER INDEX BY VARCHAR2(20); 
@@ -191,7 +191,15 @@ Collections are two types .
 
 
 
-
+lHostGlSystem = CORELS
+ Before SP_SY_ORBICORE_ENTRIES_O 
+REFNUM 5SB2309700002 lOvrFlg Y lIn_OvrStr  lOut_OvrStr  lErrorCode 0 lerror_mesg 0
+CORE LS Started1
+CORE Global Var set over
+CORE Count Check
+CORE No Entry to post
+LHOSTGLSYSTEM == C_CORELS 
+ lErrorCode0
 
 
 
